@@ -1,8 +1,6 @@
-# Project Name Documentation
+# Cascalog Documentation
 
-This is a documentation site for [Project Name](). Copy or clone me and adapt for your project
-that needs documentation guides similar to [rubyamqp.info](http://rubyamqp.info), [clojuremongodb.info](http://clojuremongodb.info) and so on.
-
+This is a documentation site for [Cascalog](http://www.cascalog.org).
 
 ## Install Dependencies
 
@@ -20,9 +18,14 @@ then navigate to [localhost:4000](http://localhost:4000)
 
     ./bin/jekyll build
 
-
-## License & Copyright
+## Site Template License & Copyright
 
 Copyright (C) 2013 Alexander Petrov, Michael S. Klishin.
+
+Distributed under the Eclipse Public License, the same as Clojure.
+
+## Site Content License & Copyright
+
+Copyright (C) 2013 Paul Lam
 
 Distributed under the Eclipse Public License, the same as Clojure.
