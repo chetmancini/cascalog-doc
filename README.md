@@ -18,14 +18,14 @@ then navigate to [localhost:4000](http://localhost:4000)
 
     ./bin/jekyll build
 
-## Site Template License & Copyright
+## Template License & Copyright
 
 Copyright (C) 2013 Alexander Petrov, Michael S. Klishin.
 
 Distributed under the Eclipse Public License, the same as Clojure.
 
-## Site Content License & Copyright
+## Content License & Copyright
 
 Copyright (C) 2013 Paul Lam
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
