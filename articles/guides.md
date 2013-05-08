@@ -14,7 +14,31 @@ We recommend that you read these guides, if possible, in this order:
 
 An overview of Cascalog with a quick tutorial that helps you to get started with it. It should take about 10 minutes to read and try the provided code examples
 
-### [Another Guide](/)
+
+
+### [Defining and executing queries](/)
+
+- Structure of a query
+- Variables and constants
+
+### [How Cascalog execute a query](/)
+
+
+
+### [Operations](/)
+
+- Filters
+- Aggregators
+- Custom operations
+
+### [Joins](/)
+
+- Inner
+- Outer
+- Cross
+
+
+### [Cascalog for the Impatient](/)
 
 This guide covers:
 
