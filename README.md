@@ -26,6 +26,6 @@ Distributed under the Eclipse Public License, the same as Clojure.
 
 ## Content License & Copyright
 
-Copyright (C) 2013 Paul Lam
+Copyright (C) 2013 Paul Lam, and contributing authors
 
 Distributed under [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
