@@ -122,6 +122,22 @@ This query is similar to performing `SELECT line FROM sentence` with SQL.
 
 As Cascalog is declarative, we tell it what we want and the logic solver figures out how to do it. In this example, we wanted output `[?line]`. Which happens to be the same as input `?line`. The fact that the two fields have the same name is treated as though they are the same entity. Thus, given that we want `[?line]`, and input `?line` is fed by `sentence`, this query reads in data from our *generator* `sentence` and pipes it directly out.
 
+### Data Tuple
+
+In Cascading and Cascalog, the basic data structure is a *Tuple*. Let's digress briefly here to take a look at other variables in the `cascalog.playground` namespace.
+
+```clj
+=> person
+[["alice"] ["bob"] ["chris"] ["david"] ["emily"] ["george"] ["gary"] ["harold"] ["kumar"] ["luanne"]]
+```
+
+`person` is series of 1-Tuples each with one element. Whereas `age` is a series of 2-Tuples.
+
+```clj
+=> age
+[["alice" 28] ["bob" 33] ["chris" 40] ["david" 25] ["emily" 25] ["george" 31] ["gary" 28] ["kumar" 27] ["luanne" 36]]
+```
+
 ### Operation
 
 Let's process the data by splitting the lines into words.
@@ -168,5 +184,4 @@ Let's process the data by splitting the lines into words.
 
 WIP
 
-In Cascading/Cascalog, the basic data structure is a **Tuple**. So in Cascalog terms, `sentence` is a series of Tuple of width one, or 1-Tuples.
 
