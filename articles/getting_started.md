@@ -93,14 +93,20 @@ sentence
 
 Which prints out a series of vectors each of size 1.
 
-All Cascalog queries contain a source and a sink. The most basic of which is just to read your data and directly write it back out.
+### Execution operator
+
+Cascalog queries contain a source and a sink. The most basic of which as shown here is to read your data and directly write it back out.
 
 ```clj
 (?- (stdout)
     sentence)
 ```
 
-Which kicks off a job in your local hadoop node and prints off the result. `?-` is the query execution operator in Cascalog. It takes a sequence of \<output tap, query\> pairs, and executes all supplied queries in parallel. Here, we have defined the **output tap** on the first line as `(stdout)`, which prints to the standard output. The second line contains the query. In this example though, there is no querying as we merely specified the in-memory **generator** as the source. This particular query is similar to doing `SELECT * FROM sentence` in SQL.
+Running this will kick off a job in your local hadoop node and prints off the result.
+
+`?-` is the query execution operator in Cascalog. It takes a sequence of \<output tap, query\> pairs, and executes all supplied queries in parallel. Here, we have defined the *output tap* on the first line as `(stdout)`, which prints to the standard output. The second line contains the query. In this example though, there is no querying as we merely specified an in-memory *generator* as the source. A **generator** is a source of data. This particular query is similar to doing `SELECT * FROM sentence` in SQL.
+
+### Query operator
 
 To actually perform a query, we introduce the query creation operation -- `<-`.
 
@@ -110,11 +116,55 @@ To actually perform a query, we introduce the query creation operation -- `<-`.
         (sentence :> ?line)))
 ```
 
-The result from this query is the same as the previous one. However, here we have an explicit query with **output field** between square brackets, `[?line]`, **generator** `sentence`, **input field**, also named `?line`. `:>` is one of two predicate operators in Cascalog which treats variables on its right as input to what is on its left.
+The result from this query is the same as the previous one. However, here we have an explicit query with *output field* between square brackets, `[?line]`, *generator* `sentence`, *input field*, also named `?line`. `:>` is one of two predicate operators in Cascalog which treats variables on its right as input to what is on its left.
 
 This query is similar to performing `SELECT line FROM sentence` with SQL.
 
-In a Cascalog query, we tell it what we want and the logic solver figures out how to do it. In this example, we wanted output `[?line]`. Which happens to be the same as input `?line`. The fact that the two fields have the same name is treated as though they are the same entity. Thus, given that we want `[?line]`, and input `?line` is fed by `sentence`, this query reads in data from our **generator** `sentence` and pipes it directly out.
+As Cascalog is declarative, we tell it what we want and the logic solver figures out how to do it. In this example, we wanted output `[?line]`. Which happens to be the same as input `?line`. The fact that the two fields have the same name is treated as though they are the same entity. Thus, given that we want `[?line]`, and input `?line` is fed by `sentence`, this query reads in data from our *generator* `sentence` and pipes it directly out.
+
+### Operation
+
+Let's process the data by splitting the lines into words.
+
+```clj
+(?- (stdout)
+    (<- [?word]
+        (sentence :> ?line)
+        (split ?line :> ?word)))
+```
+
+`split` is a custom operator as defined below.
+
+```clj
+(defmapcatop split [line]
+  "reads in a line of string and splits it by a regular expression"
+  (clojure.string/split line #"[\[\]\\\(\),.)\s]+"))
+```
+
+### Aggregation
+
+```clj
+(require '[cascalog.ops :as c])
+```
+
+```clj
+(?- (stdout)
+    (<- [?word ?count]
+        (sentence :> ?line)
+        (split ?line :> ?word)
+        (c/count :> ?count)))
+```
+
+### Shortcut
+
+```clj
+(?<- (stdout)
+     [?word ?count]
+     (sentence ?line)
+     (split ?line :> ?word)
+     (c/count ?count))
+```
+
 
 WIP
 
