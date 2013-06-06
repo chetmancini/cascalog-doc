@@ -5,7 +5,7 @@ layout: article
 
 ## About this guide
 
-This guide is a quick tutorial to help you get started with using Cascalog. It should take about 15 minutes to go through these examples. This guide covers:
+This guide is a quick tutorial to help you get started with using Cascalog. It should take about 30 minutes to go through these examples. This guide covers:
 
 1. How to add Cascalog dependency to your project
 2. Word count example in both Java and Clojure
@@ -16,10 +16,6 @@ This guide is a quick tutorial to help you get started with using Cascalog. It s
 ## What version of Cascalog does this guide cover?
 
 This guide covers Cascalog 1.10.1.
-
-## Why Cascalog?
-
-Work in progress
 
 ## Prerequisites
 
@@ -124,23 +120,29 @@ As Cascalog is declarative, we tell it what we want and the logic solver figures
 
 ### Data Tuple
 
-In Cascading and Cascalog, the basic data structure is a *Tuple*. Let's digress briefly here to take a look at other variables in the `cascalog.playground` namespace.
+To understand how to write Cascalog queries, we need to understand *Tuple*. In Cascading and Cascalog, the basic data structure is a *Tuple*. Let's digress briefly here to take a look at other variables in the `cascalog.playground` namespace.
 
 ```clj
-=> person
-[["alice"] ["bob"] ["chris"] ["david"] ["emily"] ["george"] ["gary"] ["harold"] ["kumar"] ["luanne"]]
+=> (take 2 person)
+[["alice"] 
+ ["bob"]]
 ```
 
-`person` is series of 1-Tuples each with one element. Whereas `age` is a series of 2-Tuples.
+`person` is series of 1-Tuples each with one element. To use `person` as a data generator in a Cascalog query, you would do `(person ?name)` to assign the Tuple element to `?name`.
+
+Whereas `age` is a series of 2-Tuples.
 
 ```clj
-=> age
-[["alice" 28] ["bob" 33] ["chris" 40] ["david" 25] ["emily" 25] ["george" 31] ["gary" 28] ["kumar" 27] ["luanne" 36]]
+=> (take 2 age)
+[["alice" 28] 
+ ["bob" 33]]
 ```
+
+To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. Once you bind your data *Tuple* to vars, you can operate on them.
 
 ### Operation
 
-Let's process the data by splitting the lines into words.
+Let's continue with the word count example and process the data by splitting our lines into words.
 
 ```clj
 (?- (stdout)
