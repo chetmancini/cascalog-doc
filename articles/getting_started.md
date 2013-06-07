@@ -138,40 +138,89 @@ Whereas `age` is a series of 2-Tuples.
  ["bob" 33]]
 ```
 
-To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. Once you bind your data *Tuple* to vars, you can operate on them.
+To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. `?name` and `?age` can be think of as a columns (spanning horizontally) whereas each entry can be think of as rows (spanning vertically). 
 
 ### Operation
 
-Let's continue with the word count example and process the data by splitting our lines into words.
+Once you bind your data *Tuple* to vars, you can operate on them individually (via `defn`, `defmapop`, etc), as a group either horizontally (via operators) or vertically (via *aggregator*), as well as transposing horizontal to vertical (e.g. `defmapcapop`), and vice versa (e.g. `defbufferop`).
+
+Let's continue with the word count example and process the senetence by tokenising our lines into words and thus spanning each 1-Tuple sentence vertically into multiple 1-Tuple words.
 
 ```clj
 (?- (stdout)
     (<- [?word]
         (sentence :> ?line)
-        (split ?line :> ?word)))
+        (tokenise ?line :> ?word)))
 ```
 
-`split` is a custom operator as defined below.
+`tokenise` is a custom operator as defined below. `defmapcatop` takes each Tuple and returns multiple Tuples. It is just a regular Clojure function that returns a sequence.
 
 ```clj
-(defmapcatop split [line]
+(defmapcatop tokenise [line]
   "reads in a line of string and splits it by a regular expression"
   (clojure.string/split line #"[\[\]\\\(\),.)\s]+"))
 ```
 
+To illustrate what `tokenise` is doing, consider the first Tuple of `sentence`.
+
+```clj
+[["Four score and seven years ago our fathers brought forth on this continent a new nation"]]
+```
+
+This is a 1-Tuple with one element in each row, and one row only. Passing it by `tokenise` would return a 1-Tuple also with one element in each row, but with 16 rows, each containing a word.
+
+```clj
+[["Four"]
+ ["score"]
+ ["and"]
+ ["seven"]
+ ["years"] 
+ ["ago"] 
+ ["our"] 
+ ["fathers"] 
+ ["brought"] 
+ ["forth"] 
+ ["on"] 
+ ["this"] 
+ ["continent"] 
+ ["a"] 
+ ["new"] 
+ ["nation"]]
+```
+
 ### Aggregation
+
+Now that all the words in `sentence` has been tokenised, we can group and count them. First we `require` the Cascalog operator namespace.
 
 ```clj
 (require '[cascalog.ops :as c])
 ```
 
+And use the built-in `count` operator as such. If you have followed through with this tutorial and executed the sample code, you should get a word count of the `sentence` data. Otherwise, copy and paste the code chunk in the next section into your REPL and return here to continue.
+
 ```clj
 (?- (stdout)
     (<- [?word ?count]
         (sentence :> ?line)
-        (split ?line :> ?word)
+        (tokenise ?line :> ?word)
         (c/count :> ?count)))
 ```
+
+Recall that we write Cascalog queries by telling it (1) what we want, (2) what's the input, and (3) the contraints, then the logic solver would figure out what to do. This word count query above is a good example.
+
+In this query, we want each `?word` and the number of occurrences of it, i.e. output `[?word ?count]`. The input data is a 1-Tuple `sentence` and we assign single element to `?line`. We `tokenise` each line `?line` to get our words, `?word`.
+
+By now, we have `?word` var satisfied. Then the query just needs to solve for `?count`. In the last statement, we apply the output of `c/count` operator to `?count`. This is where Cascalog differs.
+
+To perform a count in SQL, we would do,
+
+```sql
+SELECT    word, COUNT(*)
+FROM      words
+GROUP BY  word
+```
+
+But in Cascalog, the GROUP BY is implicit because `?word` output is already satisfied in the query constraint, the `c/count` would count all rows grouped by `?word`. 
 
 ### Shortcut
 
@@ -179,7 +228,7 @@ Let's continue with the word count example and process the data by splitting our
 (?<- (stdout)
      [?word ?count]
      (sentence ?line)
-     (split ?line :> ?word)
+     (tokenise ?line :> ?word)
      (c/count ?count))
 ```
 
