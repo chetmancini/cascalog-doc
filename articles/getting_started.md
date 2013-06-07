@@ -65,7 +65,7 @@ JCascalog is a pure-Java interface to Cascalog that comes bundled with Cascalog 
 
 ### Example
 
-Work In Progress
+Work In Progress. Refer to [JCascalog basics on Wiki](https://github.com/nathanmarz/cascalog/wiki/JCascalog) for now.
 
 ## Word count example in Cascalog
 
@@ -150,10 +150,12 @@ Let's continue with the word count example and process the senetence by tokenisi
 (?- (stdout)
     (<- [?word]
         (sentence :> ?line)
-        (tokenise ?line :> ?word)))
+        (tokenise :< ?line :> ?word)))
 ```
 
-`tokenise` is a custom operator as defined below. `defmapcatop` takes each Tuple and returns multiple Tuples. It is just a regular Clojure function that returns a sequence.
+`tokenise` is a custom operator as defined below. It takes input `?line` and return its result to `?word`. Notice the use of the input predicate `:<` here.
+
+`defmapcatop` takes each Tuple and returns multiple Tuples. It is just a regular Clojure function that returns a sequence.
 
 ```clj
 (defmapcatop tokenise [line]
@@ -202,7 +204,7 @@ And use the built-in `count` operator as such. If you have followed through with
 (?- (stdout)
     (<- [?word ?count]
         (sentence :> ?line)
-        (tokenise ?line :> ?word)
+        (tokenise :< ?line :> ?word)
         (c/count :> ?count)))
 ```
 
@@ -222,7 +224,11 @@ GROUP BY  word
 
 But in Cascalog, the GROUP BY is implicit because `?word` output is already satisfied in the query constraint, the `c/count` would count all rows grouped by `?word`. 
 
-### Shortcut
+### Shorthand
+
+It is often the case that you would want to define and execute your queries at the same time, so there's a query execute and definition function `?<-` that combines `?-` and `<-` together. 
+
+Furthermore, both input and output predicates, `:<` and `:>`, are optional if the expression is not ambiguous. For example, `sentence` generator only outputs to `?line`, so we don't need to use `:>` here as it is evident. Whereas `tokenise` has both input and output. So we only need to specify the output predicate `:>` as the input `?line` is obvious since it is not an output.
 
 ```clj
 (?<- (stdout)
@@ -232,7 +238,6 @@ But in Cascalog, the GROUP BY is implicit because `?word` output is already sati
      (c/count ?count))
 ```
 
+## What next?
 
-WIP
-
-
+There are a lot more features to Cascalog to make your life munging big data easier, [continue with the rest of our guides to learn how](/articles/guides.html).
