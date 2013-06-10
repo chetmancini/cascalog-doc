@@ -128,7 +128,7 @@ To understand how to write Cascalog queries, we need to understand *Tuple*. In C
  ["bob"]]
 ```
 
-`person` is series of 1-Tuples each with one element. To use `person` as a data generator in a Cascalog query, you would do `(person ?name)` to assign the Tuple element to `?name`.
+`person` is a series of 1-Tuples each with one element. To use `person` as a data generator in a Cascalog query, you would do `(person ?name)` to assign the Tuple element to `?name`.
 
 Whereas `age` is a series of 2-Tuples.
 
@@ -142,9 +142,9 @@ To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign
 
 ### Operation
 
-Once you bind your data *Tuple* to vars, you can operate on them individually (via `defn`, `defmapop`, etc), as a group either horizontally (via operators) or vertically (via *aggregator*), as well as transposing horizontal to vertical (e.g. `defmapcapop`), and vice versa (e.g. `defbufferop`).
+Once you bind your data *Tuple* to vars, you can operate on them individually (via `defn`, `defmapop`, etc), as a group either horizontally (via operators) or vertically (via *aggregator*), as well as transposing horizontal to vertical (e.g. `defmapcapop`), and vice versa (e.g. `defbufferop`). We will discuss the different types of operations in Cascalog later.
 
-Let's continue with the word count example and process the senetence by tokenising our lines into words and thus spanning each 1-Tuple sentence vertically into multiple 1-Tuple words.
+Let's continue with the word count example and process the sentence by tokenising our lines into words and thus spanning each 1-Tuple sentence vertically into multiple 1-Tuple words.
 
 ```clj
 (?- (stdout)
