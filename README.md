@@ -10,7 +10,7 @@ With Bundler:
 
 ## How to run a development server
 
-    ./bin/jekyll serve --watch
+    ./bin/jekyll serve -w --trace
 
 then navigate to [localhost:4000](http://localhost:4000)
 
