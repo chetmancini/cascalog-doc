@@ -28,8 +28,22 @@ Clojure artifacts are released to [Clojars](https://clojars.org/cascalog) reposi
 
 ### With Leiningen
 
+Add dependency to Cascalog.
+
 ```clj
 [cascalog "1.10.1"]
+```
+
+Add development dependency to Hadoop in your `project.clj`.
+
+```clj
+:profiles { :dev {:dependencies [[org.apache.hadoop/hadoop-core "0.20.2-dev"]]}}
+```
+
+Bump up heap size for running Hadoop in local mode, also in your `project.clj`.
+
+```clj
+:jvm-opts ["-Xmx768m"]
 ```
 
 ### With Maven
