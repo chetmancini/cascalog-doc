@@ -1,6 +1,6 @@
 # Cascalog Documentation
 
-This is a documentation site for [Cascalog](http://www.cascalog.org) hosted and auto-generated directly from this repository. It uses Jekyll site generator with Markdown as the article markup language. Any changes made to the `gh-pages` branch here will be live immediately.
+This is a documentation site for [Cascalog.org](http://www.cascalog.org) hosted and auto-generated directly from this repository. It uses Jekyll site generator with Markdown as the article markup language. Any changes made to the `gh-pages` branch here will be live immediately.
 
 ## Contributing
 
