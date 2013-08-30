@@ -15,7 +15,7 @@ This guide is a quick tutorial to help you get started with using Cascalog. It s
 
 ## What version of Cascalog does this guide cover?
 
-This guide covers Cascalog 1.10.2.
+This guide covers Cascalog 2.0.0.
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ Clojure artifacts are released to [Clojars](https://clojars.org/cascalog) reposi
 Add dependency to Cascalog.
 
 ```clj
-[cascalog "1.10.2"]
+[cascalog "2.0.0-SNAPSHOT"]
 ```
 
 Add development dependency to Hadoop in your `project.clj`.
 
 ```clj
-:profiles { :dev {:dependencies [[org.apache.hadoop/hadoop-core "1.0.3"]]}}
+:profiles { :dev {:dependencies [[org.apache.hadoop/hadoop-core "1.1.2"]]}}
 ```
 
 Bump up heap size for running Hadoop in local mode, also in your `project.clj`.
@@ -63,7 +63,7 @@ Then add Cascalog dependency to your project.
 <dependency>
   <groupId>cascalog</groupId>
   <artifactId>cascalog</artifactId>
-  <version>1.10.1</version>
+  <version>2.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -172,7 +172,9 @@ Let's continue with the word count example and process the sentence by tokenisin
 `defmapcatop` takes each Tuple and returns multiple Tuples. It is just a regular Clojure function that returns a sequence.
 
 ```clj
-(defmapcatop tokenise [line]
+(require '[cascalog.logic.def :as def])
+
+(def/defmapcatfn tokenise [line]
   "reads in a line of string and splits it by a regular expression"
   (clojure.string/split line #"[\[\]\\\(\),.)\s]+"))
 ```
@@ -209,7 +211,7 @@ This is a 1-Tuple with one element in each row, and one row only. Passing it by 
 Now that all the words in `sentence` has been tokenised, we can group and count them. First we `require` the Cascalog operator namespace.
 
 ```clj
-(require '[cascalog.ops :as c])
+(require '[cascalog.logic.ops :as c])
 ```
 
 And use the built-in `count` operator as such. If you have followed through with this tutorial and executed the sample code, you should get a word count of the `sentence` data. Otherwise, copy and paste the code chunk in the next section into your REPL and return here to continue.
