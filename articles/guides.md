@@ -62,6 +62,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 
 - [Cascading plus City of Palo Alto open data](https://github.com/Cascading/CoPA)
 - [ Forest Monitoring for Action project](https://github.com/reddmetrics/forma-clj)
+- [CDEC Open Health Data Platform](https://github.com/CDECatapult/cdec.openhealthdata)
 
 ### Blog posts from around the web
 
