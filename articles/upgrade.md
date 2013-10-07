@@ -10,5 +10,5 @@ Cascalog 2.0 is a major improvement over 1.x. The underlying query parser remain
 ## Breaking API changes at a glance
 
 - Most namespaces have been moved into either `cascalog.cascading.*` or `cascalog.logic.*`
-- Higher-order functions, extra vector around a function name, like `(defmapop [times [x]] [y] (* x y)) is no longer supported
+- Higher-order functions, extra vector around a function name, like `(defmapop [times [x]] [y] (* x y))` is no longer supported
 - Built-in ops use anonymous function to set pameters. e.g. `(c/limit [1] ...)` is now `((c/limit 1) ...)`
