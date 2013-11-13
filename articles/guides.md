@@ -56,7 +56,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 
 ### Upgrading from 1.x to 2.x
 
-- [Upgrading Your Project to Cascalog 2.0](/articles/upgrade.md)
+- [Upgrading Your Project to Cascalog 2.0](/articles/upgrade.html)
 
 ### [Cascalog for the Impatient](https://github.com/Quantisan/Impatient)
 
