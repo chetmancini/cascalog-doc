@@ -54,7 +54,11 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 - [Testing Cascalog with Midje, part 2](http://sritchie.github.com/2012/01/22/cascalog-testing-20.html)
 - [Troubleshooting](https://github.com/nathanmarz/cascalog/wiki/Troubleshooting%2C-testing-and-live-coding)
 
-### [Cascalog for the Impatient](https://github.com/Cascading/Impatient)
+### Upgrading from 1.x to 2.x
+
+- [Upgrading Your Project to Cascalog 2.0](/articles/upgrade.md)
+
+### [Cascalog for the Impatient](https://github.com/Quantisan/Impatient)
 
 - [This guide](https://github.com/Cascading/Impatient) is a set of progressive coding examples that start with a simple file copy and builds up to a MapReduce implementation of the TF-IDF algorithm.
 
