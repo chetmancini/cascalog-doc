@@ -31,7 +31,7 @@ Clojure artifacts are released to [Clojars](https://clojars.org/cascalog) reposi
 Add dependency to Cascalog.
 
 ```clj
-[cascalog "2.0.0-SNAPSHOT"]
+[cascalog "2.0.0"]
 ```
 
 Add development dependency to Hadoop in your `project.clj`.
@@ -63,7 +63,7 @@ Then add Cascalog dependency to your project.
 <dependency>
   <groupId>cascalog</groupId>
   <artifactId>cascalog</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
