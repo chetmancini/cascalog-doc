@@ -156,7 +156,7 @@ To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign
 
 ### Operation
 
-Once you bind your data *Tuple* to vars, you can operate on them individually (via `defn`, `defmapop`, etc), as a group either horizontally (via operators) or vertically (via *aggregator*), as well as transposing horizontal to vertical (e.g. `defmapcapop`), and vice versa (e.g. `defbufferop`). We will discuss the different types of operations in Cascalog later.
+Once you bind your data *Tuple* to vars, you can operate on them individually (via `defn`, `defmapop`, etc), as a group either horizontally (via operators) or vertically (via *aggregator*), as well as transposing horizontal to vertical (e.g. `defmapcatop`), and vice versa (e.g. `defbufferop`). We will discuss the different types of operations in Cascalog later.
 
 Let's continue with the word count example and process the sentence by tokenising our lines into words and thus spanning each 1-Tuple sentence vertically into multiple 1-Tuple words.
 
