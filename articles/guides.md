@@ -17,7 +17,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 ### Understanding Cascalog
 
 - [Introductory Tutorial, Part 1](http://nathanmarz.com/blog/introducing-cascalog-a-clojure-based-query-language-for-hado.html)
-- [Introductory Tutorial, Part 1](http://nathanmarz.com/blog/new-cascalog-features-outer-joins-combiners-sorting-and-more.html)
+- [Introductory Tutorial, Part 2](http://nathanmarz.com/blog/new-cascalog-features-outer-joins-combiners-sorting-and-more.html)
 - [Defining and executing](https://github.com/nathanmarz/cascalog/wiki/Defining-and-executing-queries)
 - [How Cascalog executes a query](https://github.com/nathanmarz/cascalog/wiki/How-cascalog-executes-a-query)
 - [Predicate operators](https://github.com/nathanmarz/cascalog/wiki/Predicate-operators)
