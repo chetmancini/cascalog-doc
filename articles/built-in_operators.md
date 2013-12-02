@@ -3,7 +3,7 @@ title: "Built-in operators"
 layout: article
 ---
 
-# Built-in operat
+# Built-in operators
 
 Cascalog provides various helper operators in the `cascalog.ops` namespace. It is common to `(:require [cascalog.ops :as c])` within your namespace declaration. As such, you will frequently see such references as `c/each` or `c/sum` in sample code and documentation.
 
