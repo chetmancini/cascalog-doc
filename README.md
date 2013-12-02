@@ -29,3 +29,5 @@ then navigate to [localhost:4000](http://localhost:4000)
 #### How to regenerate the site
 
     ./bin/jekyll build
+
+This step isn't needed to publish the site because Github can render a Jekyll repo directly.
