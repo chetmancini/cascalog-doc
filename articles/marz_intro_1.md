@@ -242,4 +242,4 @@ Here we define both of our queries without executing them. We then use the query
 
 ## Conclusion
 
-Cascalog is being actively improved. You can expect more features to allow for richer queries and query planner improvements to be added over time.
+Cascalog is being actively improved. You can expect more features to allow for richer queries and query planner improvements to be added over time. See the [next article](/articles/marz_intro_2.html) to learn about more Cascalog features such as outer joins, sorting, and combiners.
