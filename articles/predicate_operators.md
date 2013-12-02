@@ -87,7 +87,7 @@ As an example, the following query is functionally equivalent to the one discuss
 
 Also note that variables within `my-vars` are strings. If you want to use symbols outside of the body of the `<-` macro, you have to quote them:
 
-```shell
+```clj
     user=> ['?a '?b]
 ```
 
