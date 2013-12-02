@@ -47,7 +47,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 
 - [Methods for handling wide sources](/articles/methods_for_handling_wide_sources.html)
 - [Predicate macros](/articles/predicate_macros.html)
-- [Cascalog and Hadoop security](https://github.com/nathanmarz/cascalog/wiki/Cascalog-and-Hadoop-Security)
+- [Cascalog and Hadoop security](/articles/hadoop_security.html)
 
 ### Testing and Debugging
 
