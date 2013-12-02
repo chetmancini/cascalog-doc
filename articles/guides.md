@@ -19,8 +19,8 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 - [Introductory Tutorial, Part 1](/articles/marz_intro_1.html)
 - [Introductory Tutorial, Part 2](/articles/marz_intro_2.html)
 - [Defining and executing](/articles/defining_and_executing_queries.html)
-- [How Cascalog executes a query](https://github.com/nathanmarz/cascalog/wiki/How-cascalog-executes-a-query)
-- [Predicate operators](https://github.com/nathanmarz/cascalog/wiki/Predicate-operators)
+- [How Cascalog executes a query](/articles/how_cascalog_executes_a_query.html)
+- [Predicate operators](/articles/predicate_operators.html)
 - Structure of a query
 - Variables and constants
 
