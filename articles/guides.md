@@ -33,7 +33,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 - Filters
 - Aggregators
 
-### [Joins](https://github.com/nathanmarz/cascalog/wiki/Joins-in-cascalog)
+### [Joins](/articles/joins_in_cascalog.html)
 
 - Inner
 - Outer
