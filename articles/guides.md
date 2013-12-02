@@ -28,7 +28,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 ### Operations
 
 - [Custom operations](/articles/guide_to_custom_operations.html)
-- [Built-in operators](https://github.com/nathanmarz/cascalog/wiki/Built-in-operations)
+- [Built-in operators](/articles/built-in_operators.html)
 - [Which operation def macro to use](http://entxtech.blogspot.com/2010/12/which-operation-def-macro-should-i-use.html)
 - Filters
 - Aggregators
