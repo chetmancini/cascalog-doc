@@ -179,13 +179,21 @@ Let's continue with the word count example and process the sentence by tokenisin
   (clojure.string/split line #"[\[\]\\\(\),.)\s]+"))
 ```
 
-To illustrate what `tokenise` is doing, consider the first Tuple of `sentence`.
+If you run `tokenise` as a regular function, you will get an exception.
+
+```
+user=> (tokenise sentence)
+
+ClassCastException clojure.lang.PersistentVector cannot be cast to java.lang.CharSequence  clojure.string/split (string.clj:222)
+```
+
+This is because `tokenise` is not a regular Clojure function but a Cascalog operator.Before we see `tokenise` in action, let's take a look at its expected input and output tuples to get a sense of what it does first. Consider the first Tuple of `sentence`.
 
 ```clj
 [["Four score and seven years ago our fathers brought forth on this continent a new nation"]]
 ```
 
-This is a 1-Tuple with one element in each row, and one row only. Passing it by `tokenise` would return a 1-Tuple also with one element in each row, but with 16 rows, each containing a word.
+This is a 1-Tuple with one element in each row, and one row only. Passing it into `tokenise` would return a 1-Tuple also with one element in each row, but with 16 rows, each containing a word.
 
 ```clj
 [["Four"]
@@ -205,6 +213,8 @@ This is a 1-Tuple with one element in each row, and one row only. Passing it by 
  ["new"] 
  ["nation"]]
 ```
+
+To use `tokenise`, we need to put it a Cascalog query and use it as an operator.
 
 ### Aggregation
 
