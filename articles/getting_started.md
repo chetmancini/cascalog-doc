@@ -40,10 +40,10 @@ Add development dependency to Hadoop in your `project.clj`.
 :profiles { :dev {:dependencies [[org.apache.hadoop/hadoop-core "1.1.2"]]}}
 ```
 
-Bump up heap size for running Hadoop in local mode, also in your `project.clj`.
+Bump up heap size for running Hadoop in local mode, also in your `project.clj`. Make sure that your heap size is set to at least 768 MB.
 
 ```clj
-:jvm-opts ["-Xmx768m"]
+:jvm-opts ["-Xms768m" "-Xmx768m"]
 ```
 
 ### With Maven
