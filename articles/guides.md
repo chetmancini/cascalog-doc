@@ -51,8 +51,8 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 
 ### Testing and Debugging
 
-- [Testing Cascalog with Midje, part 1](http://sritchie.github.com/2011/09/30/testing-cascalog-with-midje.html)
-- [Testing Cascalog with Midje, part 2](http://sritchie.github.com/2012/01/22/cascalog-testing-20.html)
+- [Testing Cascalog with Midje, part 1](http://sritchie.github.com/2011/09/30/testing-cascalog-with-midje/)
+- [Testing Cascalog with Midje, part 2](http://sritchie.github.com/2012/01/22/cascalog-testing-20/)
 - [Troubleshooting](/articles/troubleshooting.html)
 
 ### Upgrading from 1.x to 2.x
