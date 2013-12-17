@@ -48,7 +48,7 @@ Bump up heap size for running Hadoop in local mode, also in your `project.clj`. 
 
 ### With Maven
 
-Add Clojars to your repositories.
+If you prefer to use Maven instead of Leiningen, add Clojars to your repositories.
 
 ```xml
 <repository>
@@ -70,16 +70,6 @@ Then add Cascalog dependency to your project.
 ## Use Cascalog through Java or Clojure?
 
 The native implementation of Cascalog is in Clojure. However, Cascalog provides a pure-Java interface called JCascalog that is perfectly interoperable with the Clojure version. Choose whichever interface that is comfortable for you to get started.
-
-## Word count example in JCascalog
-
-### JCascalog overview
-
-JCascalog is a pure-Java interface to Cascalog that comes bundled with Cascalog as of version 1.8.7. All the functionality available in Cascalog is available via the JCascalog interface. Moreso, Cascalog and JCascalog are perfectly interoperable: JCascalog subqueries, operations, and predicate macros can be used in regular Cascalog code and vice-versa.
-
-### Example
-
-Work In Progress. Refer to [JCascalog basics on Wiki](https://github.com/nathanmarz/cascalog/wiki/JCascalog) for now.
 
 ## Word count example in Cascalog
 
@@ -138,7 +128,7 @@ To understand how to write Cascalog queries, we need to understand *Tuple*. In C
 
 ```clj
 => (take 2 person)
-[["alice"] 
+[["alice"]
  ["bob"]]
 ```
 
@@ -148,11 +138,11 @@ Whereas `age` is a series of 2-Tuples.
 
 ```clj
 => (take 2 age)
-[["alice" 28] 
+[["alice" 28]
  ["bob" 33]]
 ```
 
-To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. `?name` and `?age` can be think of as a columns (spanning horizontally) whereas each entry can be think of as rows (spanning vertically). 
+To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. `?name` and `?age` can be think of as a columns (spanning horizontally) whereas each entry can be think of as rows (spanning vertically).
 
 ### Operation
 
@@ -200,17 +190,17 @@ This is a 1-Tuple with one element in each row, and one row only. Passing it int
  ["score"]
  ["and"]
  ["seven"]
- ["years"] 
- ["ago"] 
- ["our"] 
- ["fathers"] 
- ["brought"] 
- ["forth"] 
- ["on"] 
- ["this"] 
- ["continent"] 
- ["a"] 
- ["new"] 
+ ["years"]
+ ["ago"]
+ ["our"]
+ ["fathers"]
+ ["brought"]
+ ["forth"]
+ ["on"]
+ ["this"]
+ ["continent"]
+ ["a"]
+ ["new"]
  ["nation"]]
 ```
 
@@ -248,11 +238,11 @@ FROM      words
 GROUP BY  word
 ```
 
-But in Cascalog, the GROUP BY is implicit because `?word` output is already satisfied in the query constraint, the `c/count` would count all rows grouped by `?word`. 
+But in Cascalog, the GROUP BY is implicit because `?word` output is already satisfied in the query constraint, the `c/count` would count all rows grouped by `?word`.
 
 ### Shorthand
 
-It is often the case that you would want to define and execute your queries at the same time, so there's a query execute and definition function `?<-` that combines `?-` and `<-` together. 
+It is often the case that you would want to define and execute your queries at the same time, so there's a query execute and definition function `?<-` that combines `?-` and `<-` together.
 
 Furthermore, both input and output predicates, `:<` and `:>`, are optional if the expression is not ambiguous. For example, `sentence` generator only outputs to `?line`, so we don't need to use `:>` here as it is evident. Whereas `tokenise` has both input and output. So we only need to specify the output predicate `:>` as the input `?line` is obvious since it is not an output.
 
@@ -263,6 +253,16 @@ Furthermore, both input and output predicates, `:<` and `:>`, are optional if th
      (tokenise ?line :> ?word)
      (c/count ?count))
 ```
+
+## Word count example in JCascalog
+
+### JCascalog overview
+
+JCascalog is a pure-Java interface to Cascalog that comes bundled with Cascalog as of version 1.8.7. All the functionality available in Cascalog is available via the JCascalog interface. Moreso, Cascalog and JCascalog are perfectly interoperable: JCascalog subqueries, operations, and predicate macros can be used in regular Cascalog code and vice-versa.
+
+### Example
+
+Work In Progress. Refer to [JCascalog basics on Wiki](https://github.com/nathanmarz/cascalog/wiki/JCascalog) for now.
 
 ## What next?
 
