@@ -116,7 +116,8 @@ To actually perform a query, we introduce the query creation operation -- `<-`.
         (sentence :> ?line)))
 ```
 
-The result from this query is the same as the previous one. However, here we have an explicit query with *output field* between square brackets, `[?line]`, *generator* `sentence`, *input field*, also named `?line`. `:>` is one of two predicate operators in Cascalog which treats variables on its right as input to what is on its left.
+The result from this query is the same as the previous one. However, here we have an explicit query with *output field* between square brackets, `[?line]`, *generator* `sentence`, *input field*, also named `?line`. `:>` and it's sibling
+`:<` are examples of Cascalog predicate operators which treat variables on one side as input to what's on the other.
 
 This query is similar to performing `SELECT line FROM sentence` with SQL.
 
@@ -142,7 +143,7 @@ Whereas `age` is a series of 2-Tuples.
  ["bob" 33]]
 ```
 
-To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. `?name` and `?age` can be think of as a columns (spanning horizontally) whereas each entry can be think of as rows (spanning vertically).
+To use `age` as a data generator in a query, you do `(age ?name ?age)` to assign the 2-Tuples to two vars. `?name` and `?age` can be thought of as a columns (spanning horizontally) whereas each entry can be thought of as rows (spanning vertically).
 
 ### Operation
 
