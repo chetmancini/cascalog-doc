@@ -178,7 +178,7 @@ user=> (tokenise sentence)
 ClassCastException clojure.lang.PersistentVector cannot be cast to java.lang.CharSequence  clojure.string/split (string.clj:222)
 ```
 
-This is because `tokenise` is not a regular Clojure function but a Cascalog operator.Before we see `tokenise` in action, let's take a look at its expected input and output tuples to get a sense of what it does first. Consider the first Tuple of `sentence`.
+This is because `tokenise` is not a regular Clojure function but a Cascalog operator. Before we see `tokenise` in action, let's take a look at its expected input and output tuples to get a sense of what it does first. Consider the first Tuple of `sentence`.
 
 ```clj
 [["Four score and seven years ago our fathers brought forth on this continent a new nation"]]
