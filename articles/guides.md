@@ -59,7 +59,7 @@ An overview of Cascalog with a quick tutorial that helps you to get started with
 
 - [Upgrading Your Project to Cascalog 2.0](/articles/upgrade.html)
 
-### [Cascalog for the Impatient](https://github.com/Quantisan/Impatient)
+### [Cascalog for the Impatient](https://github.com/Cascading/Impatient-Cascalog)
 
 - [This guide](https://github.com/Cascading/Impatient) is a set of progressive coding examples that start with a simple file copy and builds up to a MapReduce implementation of the TF-IDF algorithm.
 
