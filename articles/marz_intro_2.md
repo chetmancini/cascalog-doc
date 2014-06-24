@@ -55,7 +55,7 @@ Notice that the (nil? !!p2) predicate gets applied after !!p2 gets joined to a g
 
 Now let's say we want the follows count for each person. A normal "count" aggregation won't work because it counts the number of tuples and doesn't distinguish between null and non-null follows. In this case, we want null follows to be counted as 0 and non-null follows to be counted as 1. Cascalog has an aggregator called "!count" that does exactly this:
 
-```clj
+```cljgit@github.com:sirobinson/cascalog-doc.git
 user=> (?<- (stdout) [?person ?count]
           (person ?person) (follows ?person !!p2) (c/!count !!p2 :> ?count))
 ```
@@ -135,7 +135,8 @@ user=> (?<- (stdout) [?person ?youngest] (follows ?person ?p2)
 
 ## Duplicate elimination
 
-If your query doesn't have any aggregators, Cascalog will by default insert a reduce step to remove all duplicate tuples from your output. You can now control that behavior with the :distinct predicate. Compare the following two queries:
+If your query doesn't have any aggregators, Cascalog can, by default, insert a reduce step to remove all duplicate tuples from your output. 
+Previous to version 2 of cascalog, you could control that behavior with the :distinct predicate. Compare the following two queries:
 
 ```clj
 user=> (?<- (stdout) [?a] (age _ ?a))
@@ -143,3 +144,4 @@ user=> (?<- (stdout) [?a] (age _ ?a) (:distinct false))
 ```
 
 The second query will have duplicates in the output. One use case for this functionality is making a subquery that does some pre-processing on an input source.
+Note that version 2 of Cascalog defaults to (:distinct false) so to enable this behaviour, you would need to add a (:distinct true).
