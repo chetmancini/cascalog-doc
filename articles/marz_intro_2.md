@@ -55,7 +55,7 @@ Notice that the (nil? !!p2) predicate gets applied after !!p2 gets joined to a g
 
 Now let's say we want the follows count for each person. A normal "count" aggregation won't work because it counts the number of tuples and doesn't distinguish between null and non-null follows. In this case, we want null follows to be counted as 0 and non-null follows to be counted as 1. Cascalog has an aggregator called "!count" that does exactly this:
 
-```cljgit@github.com:sirobinson/cascalog-doc.git
+```clj
 user=> (?<- (stdout) [?person ?count]
           (person ?person) (follows ?person !!p2) (c/!count !!p2 :> ?count))
 ```
