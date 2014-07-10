@@ -41,7 +41,7 @@ work with Cascalog is available <a href="http://bcbio.wordpress.com/2011/07/04/s
 
 <tr>
 <td>
-<img src="http://static.sl.lumosity.com/compiled/brochure_ware/pages/about/press/logos/images/lumosity_logo-0729e61868aef87b41cbacb2c4cf289f.png" width=250px />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Lumosity_logo.png/320px-Lumosity_logo.png" width=250px />
 </td>
 <td>
 <p>At Lumosity, we are committed to pioneering the understanding and enhancement of the human brain to give each person the power to unlock their full potential. Data analysis is an important part of our business, whether it's to conduct new scientific studies to learn more about the human brain or analyze user behavior on our site to optimize Lumosity and the training experience. Cascalog allows our Research & Development team to efficiently analyze our database of human cognitive performance – the largest in the world with over 450 million data points - to gain new insights on cognitive training.</p>
@@ -62,16 +62,7 @@ work with Cascalog is available <a href="http://bcbio.wordpress.com/2011/07/04/s
 </tr>
 <tr>
 <td>
-<img src="http://www.crunchbase.com/assets/images/resized/0000/1336/1336v1-max-250x250.png" width=250px />
-</td>
-<td>
-</td>
-</tr>
-
-</tr>
-<tr>
-<td>
-<img src="http://www.crunchbase.com/assets/images/resized/0012/4488/124488v2-max-250x250.png" width=250px />
+<img src="http://www.yieldbot.com/img/global-logo.png" width=250px />
 </td>
 <td>
 <p>Cascalog forms the core of Yieldbot's intent modeling and matching technology stack. Publisher's data is fed through a batch workflow at regular intervals and performs a wide array of task such as predictive modeling, text processing, metrics aggregation.</p>
@@ -91,11 +82,24 @@ REDD Metrics
 
 <tr>
 <td>
-<img src="http://dnpc2x3bdjjqt.cloudfront.net/includes/images/header/uswitch_logo-f309e969.png" />
+<img src="http://www.uswitch.com/media-centre/wp-content/uploads/logo-downloads/uSwitch-white-on-blue.png" width=250px />
 </td>
 <td>
 <p>
 uSwitch uses high-level data to make business decisions and drill down to the microscopic-level to enable a personalised experience to each of our customers. Cascalog sits at the heart of our modular data pipeline transforming immutable event data to clean and extract customer features for the rest of the business. Furthermore, the logical and functional nature of Cascalog enables our small data team to build simple, composable data processing workflow on scale.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="https://s3.amazonaws.com/static.tumblr.com/64b31011d62d8f3c46129274b453e0d7/oxpscly/cLAmwtxqc/tumblr_static_im_logo.png" width=250px />
+</td>
+<td>
+<p>
+Intent Media uses Cascalog throughout our data science platform for both ETL and machine learning at scale. We build predictive models from terabytes of web traffic data for user segmentation and ad selection on travel ecommerce sites.</p>
+
+<p>See a presentation on <a href="https://speakerdeck.com/jsondag/nyc-clojure-meetup-apr-14">Cascalog at Intent Media</a> by Jon Sondag, Head of Data Science, at the <a href="http://www.meetup.com/Clojure-NYC/">NYC Clojure Meetup</a>, and a <a href="http://gotocon.com/dl/goto-chicago-2014/slides/KurtSchrader_MovingFasterWhyWeChoseCascalogForDataProcessingAndMachineLearning.pdf">presentation on our evolution to Cascalog</a> by Kurt Schrader, CTO, at <a href="http://gotocon.com/">Gotocon</a> 2014.
+</p>
 </td>
 </tr>
 
