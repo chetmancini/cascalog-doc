@@ -7,7 +7,7 @@ layout: article
 
 Cascalog 2.0 is a major improvement over 1.x. The underlying query parser remains the same but there are several notable breaking API changes. This is a guide to point out the major differences between 2.x and 1.x versions of Cascalog to help you make the upgrade.
 
-## Breaking API changes at a glance
+## Breaking API Changes at a Glance
 
 - Most namespaces have been moved into either `cascalog.cascading.*` or `cascalog.logic.*`
   - `cascalog.ops` &#8594; `cascalog.logic.ops`
@@ -28,12 +28,22 @@ Cascalog 2.0 is a major improvement over 1.x. The underlying query parser remain
 ```
 
 now becomes
+
 ```
 (my-query square)
 ```
 
-## Non-breaking changes
+## Non-breaking Changes
 Cascalog operations are now just functions, so the `def*op` names have been deprecated in favor of names that sound like functions, `def*fn`. A few examples:
+
 - `deffilterop` &#8594; `deffilterfn`
 - `defbufferop` &#8594; `defbufferfn`
 - `defmapop` &#8594; `defmapfn`
+
+## Under the Hood
+Cascalog 2.0 uses Cascading 2.5 which has [broader compatibility](http://www.cascading.org/support/compatibility/) for more Hadoop versions and distributions, such as Apache Hadoop 2.x and Cloudera 5.
+
+## Other Changes
+Taps have been greatly improved. Rather than using cascalog-contrib, more-taps is included directly within Cascalog. For example, HFS-Delimited supports the full range of keyword options, like `:outfields`, `:classes`,
+  `:compress?`, `:skip-header?`, `:delimiter`, `:write-header?`,
+  `:strict?`, `safe?`, and `:quote`.
